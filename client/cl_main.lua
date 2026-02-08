@@ -264,21 +264,21 @@ local InitLocations <const> = function()
                         title = 'Portakal Sat',
                         icon = 'fa-solid fa-cart-shopping',
                         onSelect = function()
-                            InputModal(Config.Selling.price['weapon_pistol'].name or 'Portakal Suyu', 'orange_juice')
+                            InputModal(Config.Selling.price['orange_juice'].name or 'Portakal Suyu', 'orange')
                         end
                     },
                     {
                         title = 'Karpuz Sat',
                         icon = 'fa-solid fa-cart-shopping',
                         onSelect = function()
-                            InputModal(Config.Selling.price['watermelon_slice'].name or 'Karpuz Dilimi', 'watermelon_slice')
+                            InputModal(Config.Selling.price['watermelon_slice'].name or 'Karpuz Dilimi', 'watermelon')
                         end
                     },
                     {
                         title = 'Üzüm Sat',
                         icon = 'fa-solid fa-cart-shopping',
                         onSelect = function()
-                            InputModal(Config.Selling.price['grape_juice'].name or 'Üzüm Suyu', 'grape_juice')
+                            InputModal(Config.Selling.price['grape_juice'].name or 'Üzüm Suyu', 'grape')
                         end
                     },
                 }
@@ -362,12 +362,12 @@ AddEventHandler('onResourceStop', function(resource)
     end
 end)
 
-RegisterNetEvent(Event('client:onPlayerLoaded'), function()
+RegisterNetEvent(Event('client:OnPlayerLoad'), function()
     InitLocations()
     InitBlips()
 end)
 
-RegisterNetEvent(Event('client:onPlayerUnload'), function()
+RegisterNetEvent(Event('client:OnPlayerUnload'), function()
     if not Config.UseTarget then
         for _, zone in pairs(Zones.Orange) do
             if zone then
